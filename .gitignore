@@ -14,10 +14,11 @@ __pycache__/
 # *.mp3
 # *.mp4
 # *.wav
-# *.jpg
-# *.png
-# *.jpeg
-# *.bmp
+*.jpg
+*.png
+*.jpeg
+*.bmp
+*.txt
 
 # notebook checkpoints
 .ipynb_checkpoints
