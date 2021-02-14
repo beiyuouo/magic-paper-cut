@@ -27,3 +27,4 @@ __pycache__/
 log/*
 data/*
 test/*
+test*

@@ -14,8 +14,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument('file')  # 输入文件
 parser.add_argument('-o', '--output', default=os.path.join('.', 'result'))  # 输出文件
 parser.add_argument('-l', '--len', type=int, default=4, help='number of paper')
-parser.add_argument('--width', type=int, default=1480)  # 输出字符画宽
-parser.add_argument('--height', type=int, default=1050)  # 输出字符画高
+parser.add_argument('--width', type=int, default=2812)  # 输出字符画宽 148
+parser.add_argument('--height', type=int, default=1995)  # 输出字符画高 105
 parser.add_argument('--border', type=int, default=10)  # TODO
 parser.add_argument('--line_width', type=int, default=3)
 parser.add_argument('--mb', type=int, default=7, help='medianBlur')
@@ -64,7 +64,7 @@ def generate_imgs(pix):
         img = Image.fromarray(img, 'L')
         # img.show()
         img.save(os.path.join(OUTPUT, f'cov_{i}.jpg'))
-        generate_print(img_arr, color, os.path.join(OUTPUT,f'print_{i}.jpg'))
+        generate_print(img_arr, color, os.path.join(OUTPUT, f'print_{i}.jpg'))
 
 
 def generate_print(img, color, path):
@@ -72,9 +72,9 @@ def generate_print(img, color, path):
     for i in range(HEIGHT):
         for j in range(WIDTH):
             if img[i][j] == color:
-                new_img[i][j] = 0
+                new_img[i][j] = 230
             else:
-                new_img[i][j] = 255
+                new_img[i][j] = 255  # 0 black
     new_img = new_img.astype(np.uint8)
     new_img = Image.fromarray(new_img, 'L')
     # img.show()
@@ -86,7 +86,7 @@ if __name__ == '__main__':
     im = Image.open(IMG)
     im = im.resize((WIDTH, HEIGHT), Image.NEAREST)
 
-    im = im.filter(ImageFilter.GaussianBlur(radius=0.7))
+    im = im.filter(ImageFilter.GaussianBlur(radius=5))
     # im = im.filter(ImageFilter.EMBOSS)
 
     txt = ""
