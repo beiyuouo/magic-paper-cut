@@ -13,6 +13,9 @@ TBD
 <details>
     <summary>Click to see more</summary>
 
+### v0.0.1_210214_alpha
+- fix some bugs
+
 ### v0.0.1_210213_alpha
 - base function.
 
